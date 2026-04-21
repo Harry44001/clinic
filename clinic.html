@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Aura Aesthetics | Advanced Skin Care & Face Lifts</title>
+    <meta name="title" content="Aura Aesthetics | Advanced Skin Care & Face Lifts">
+    <meta name="description" content="Experience the pinnacle of aesthetic dermatology. Aura Aesthetics offers premium skin care, advanced face lifts, anti-aging treatments, and laser therapies.">
+    <meta name="keywords" content="skin care clinic, advanced face lifts, dermatology, anti-aging, thread lifts, laser hair removal, aesthetic clinic, skin rejuvenation, gulf elevators skin concept, premium dermatology">
+    <meta name="author" content="Aura Aesthetics">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aura-aesthetics-clinic.com/">
+    <meta property="og:title" content="Aura Aesthetics | Advanced Skin Care & Face Lifts">
+    <meta property="og:description" content="Elevate your natural beauty with state-of-the-art dermatological treatments, facial lifts, and bespoke skin care regimens.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.aura-aesthetics-clinic.com/">
+    <meta property="twitter:title" content="Aura Aesthetics | Advanced Skin Care & Face Lifts">
+    <meta property="twitter:description" content="Elevate your natural beauty with state-of-the-art dermatological treatments, facial lifts, and bespoke skin care regimens.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Schema.org Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Aura Aesthetics",
+      "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "@id": "",
+      "url": "https://www.aura-aesthetics-clinic.com",
+      "telephone": "+1-800-555-0199",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Aesthetic Boulevard",
+        "addressLocality": "Metropolis",
+        "postalCode": "10001",
+        "addressCountry": "US"
+      },
+      "medicalSpecialty": "Dermatology",
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <!-- Tailwind CSS (via CDN for single-file constraint) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light': '#FDFBF7',
+                        'brand-beige': '#F2EBE3',
+                        'brand-gold': '#D4AF37',
+                        'brand-dark': '#2C2C2C',
+                        'brand-gray': '#8A8A8A'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Reset */
+        body {
+            background-color: #FDFBF7;
+            color: #2C2C2C;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #FDFBF7;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .loader-line {
+            width: 100px;
+            height: 2px;
+            background: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+        .loader-line::after {
+            content: '';
+            position: absolute;
+            left: -50%;
+            height: 100%;
+            width: 50%;
+            background: #D4AF37;
+            animation: lineAnim 1.5s infinite ease-in-out;
+        }
+        @keyframes lineAnim {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
+
+        /* Video Hero Overlay */
+        .video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            z-index: -2;
+            animation: kenBurns 20s infinite alternate linear;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(253,251,247,0.2) 0%, rgba(253,251,247,0.8) 100%);
+            z-index: -1;
+        }
+        @keyframes kenBurns {
+            0% { transform: translateX(-50%) translateY(-50%) scale(1); }
+            100% { transform: translateX(-50%) translateY(-50%) scale(1.1); }
+        }
+
+        /* Smooth Scroll Reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.2s; }
+        .reveal-delay-2 { transition-delay: 0.4s; }
+        .reveal-delay-3 { transition-delay: 0.6s; }
+
+        /* Image Hover Effects (Elevate Concept) */
+        .image-elevate {
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .card-container:hover .image-elevate {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        /* Aesthetic Button */
+        .btn-outline {
+            position: relative;
+            display: inline-block;
+            padding: 12px 32px;
+            border: 1px solid #2C2C2C;
+            background: transparent;
+            color: #2C2C2C;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            overflow: hidden;
+            transition: color 0.4s;
+            cursor: pointer;
+        }
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #2C2C2C;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: -1;
+        }
+        .btn-outline:hover {
+            color: #FDFBF7;
+        }
+        .btn-outline:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .btn-gold {
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+        .btn-gold::before {
+            background: #D4AF37;
+        }
+        .btn-gold:hover {
+            color: #FDFBF7;
+        }
+
+        /* Navigation Transition */
+        #navbar {
+            transition: all 0.4s ease;
+        }
+        .nav-scrolled {
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        /* Aesthetic lines */
+        .vertical-line {
+            width: 1px;
+            height: 60px;
+            background-color: #D4AF37;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-brand-dark">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="text-center">
+            <h2 class="font-serif text-3xl mb-4 tracking-widest text-brand-dark">AURA</h2>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 py-6 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="font-serif text-2xl tracking-[0.2em] font-semibold text-brand-dark uppercase">
+                Aura<span class="text-brand-gold">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-10 items-center">
+                <a href="#about" class="text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">Clinic</a>
+                <a href="#lifts" class="text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">Lifts & Treatments</a>
+                <a href="#process" class="text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">The Process</a>
+                <a href="#testimonials" class="text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">Testimonials</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="#contact" class="btn-outline">Book Consultation</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-dark focus:outline-none">
+                <i class="ph ph-list text-3xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-light z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-brand-dark focus:outline-none">
+                <i class="ph ph-x text-3xl"></i>
+            </button>
+            <a href="#about" class="mobile-link font-serif text-3xl hover:text-brand-gold transition-colors">Clinic</a>
+            <a href="#lifts" class="mobile-link font-serif text-3xl hover:text-brand-gold transition-colors">Face Lifts</a>
+            <a href="#process" class="mobile-link font-serif text-3xl hover:text-brand-gold transition-colors">Process</a>
+            <a href="#contact" class="mobile-link font-serif text-3xl hover:text-brand-gold transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="video-container flex items-center justify-center text-center relative" id="home">
+        <!-- Background Video / Image Fallback -->
+        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+            <!-- Using a stable dummy video. If it fails, poster image remains. -->
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+
+        <div class="relative z-10 px-6 max-w-4xl mx-auto mt-20">
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold mb-6 block reveal">Elevating Dermatology</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 reveal reveal-delay-1">
+                Elevate Your <br/><span class="italic font-light">Natural Beauty</span>
+            </h1>
+            <p class="text-sm md:text-base text-brand-gray font-light max-w-xl mx-auto mb-10 reveal reveal-delay-2">
+                Pioneering advanced face lifts, aesthetic dermatology, and laser treatments. We combine medical science with an artistic touch to lift, rejuvenate, and restore.
+            </p>
+            <div class="reveal reveal-delay-3">
+                <a href="#lifts" class="btn-outline btn-gold">Explore Treatments</a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center reveal reveal-delay-3">
+            <span class="text-[10px] uppercase tracking-widest text-brand-gray mb-3">Scroll</span>
+            <div class="w-[1px] h-12 bg-brand-gray/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-brand-gold animate-[slideDown_2s_infinite]"></div>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(200%); }
+        }
+    </style>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 lg:py-32 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal card-container">
+                    <div class="absolute -inset-4 border border-brand-gold/30 translate-x-4 translate-y-4 -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clinic Interior" class="w-full h-[600px] object-cover image-elevate">
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="vertical-line mb-8 mx-0"></div>
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6">The Art of <br/>Clinical Aesthetics</h2>
+                    <p class="text-brand-gray font-light leading-relaxed mb-6">
+                        Inspired by the precision of architectural elevation, Aura Aesthetics takes your skin care to new heights. We specialize in advanced dermatological procedures, focusing on non-surgical lifts and skin rejuvenation that respects your natural anatomy.
+                    </p>
+                    <p class="text-brand-gray font-light leading-relaxed mb-10">
+                        Our clinic blends the rigorous safety of a medical facility with the serenity of a premium spa. Whether you seek to address acne, pigmentation, or require an advanced thread lift, our experts curate a personalized journey for you.
+                    </p>
+                    <a href="#contact" class="btn-outline">Meet Our Doctors</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Lifts & Services -->
+    <section id="lifts" class="py-24 lg:py-32 bg-brand-beige">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-20">
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-gold mb-4 block reveal">Our Expertise</span>
+            <h2 class="font-serif text-4xl md:text-5xl reveal reveal-delay-1">Signature Lifts & Treatments</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6 lg:px-8">
+            
+            <!-- Service 1 -->
+            <div class="group cursor-pointer reveal card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Advanced Face Lifts" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Advanced Face Lifts</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Experience non-surgical elevation. Using HIFU and advanced thread lift technology to tighten, lift, and contour the face and neck.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="group cursor-pointer reveal reveal-delay-1 card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Skin Rejuvenation" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Skin Rejuvenation</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Restore your skin's youthful glow. From chemical peels to micro-needling and PRP therapies tailored to your skin type.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="group cursor-pointer reveal reveal-delay-2 card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clinical Dermatology" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Clinical Dermatology</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Medical-grade treatments for acne, rosacea, pigmentation, and scarring led by board-certified dermatologists.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+             <!-- Service 4 -->
+             <div class="group cursor-pointer reveal card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laser Hair Reduction" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Laser Hair Reduction</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Painless, permanent laser hair reduction using the latest triple-wavelength diode technology suitable for all skin types.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="group cursor-pointer reveal reveal-delay-1 card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Anti-Aging Injectables" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Dermal Fillers & Botox</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Precision injectables to smooth fine lines, restore volume, and enhance your natural facial contours elegantly.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="group cursor-pointer reveal reveal-delay-2 card-container bg-brand-light p-6 transition-shadow hover:shadow-2xl hover:shadow-brand-gold/10">
+                <div class="overflow-hidden mb-6 h-64">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Spa Facials" class="w-full h-full object-cover image-elevate">
+                </div>
+                <h3 class="font-serif text-2xl mb-3 group-hover:text-brand-gold transition-colors">Medical Facials</h3>
+                <p class="text-sm text-brand-gray font-light leading-relaxed mb-4">
+                    Deep-cleansing HydraFacials and glowing med-spa treatments that deeply hydrate, exfoliate, and protect the skin barrier.
+                </p>
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-dark group-hover:text-brand-gold flex items-center gap-2 transition-colors">
+                    Discover More <i class="ph ph-arrow-right"></i>
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- The Elevation Process -->
+    <section id="process" class="py-24 lg:py-32 bg-brand-dark text-brand-light relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-beige/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6">The Elevation <br/>Method</h2>
+                    <p class="text-brand-gray font-light leading-relaxed mb-8">
+                        Just as elevating a structure requires a solid foundation, our approach to skin care is systemic and structural. We don't just treat the surface; we address the underlying architecture of your skin for lasting results.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6 reveal reveal-delay-1">
+                            <div class="text-brand-gold font-serif text-2xl italic">01</div>
+                            <div>
+                                <h4 class="text-lg uppercase tracking-widest mb-2 text-white">Consultation</h4>
+                                <p class="text-sm text-brand-gray font-light">Comprehensive skin analysis using 3D imaging to understand your unique dermal topography.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 reveal reveal-delay-2">
+                            <div class="text-brand-gold font-serif text-2xl italic">02</div>
+                            <div>
+                                <h4 class="text-lg uppercase tracking-widest mb-2 text-white">Prescription</h4>
+                                <p class="text-sm text-brand-gray font-light">A bespoke treatment plan outlining clinical procedures, lifts, and home care regimes.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 reveal reveal-delay-3">
+                            <div class="text-brand-gold font-serif text-2xl italic">03</div>
+                            <div>
+                                <h4 class="text-lg uppercase tracking-widest mb-2 text-white">Elevation</h4>
+                                <p class="text-sm text-brand-gray font-light">Execution of treatments by elite dermatologists in our sterile, luxury clinic environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative reveal reveal-delay-1 h-[600px] card-container">
+                    <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skin Care Consultation" class="w-full h-full object-cover filter brightness-75 image-elevate">
+                    <div class="absolute inset-0 border border-brand-gold/20 m-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider (Vanilla JS) -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-brand-light text-center">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <i class="ph-fill ph-quotes text-4xl text-brand-gold/50 mb-8 block reveal"></i>
+            
+            <div class="relative overflow-hidden h-64 reveal reveal-delay-1">
+                <div id="testimonial-slider" class="flex transition-transform duration-700 ease-in-out h-full">
+                    <!-- Slide 1 -->
+                    <div class="min-w-full px-4 flex flex-col justify-center">
+                        <p class="font-serif text-2xl md:text-3xl leading-relaxed mb-6 italic">
+                            "The thread lift procedure completely transformed my jawline. The team at Aura is incredibly professional, and the clinic feels like a sanctuary."
+                        </p>
+                        <span class="text-xs uppercase tracking-widest text-brand-gray">— Sarah Jenkins</span>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full px-4 flex flex-col justify-center">
+                        <p class="font-serif text-2xl md:text-3xl leading-relaxed mb-6 italic">
+                            "I struggled with severe acne for years. Their clinical dermatology approach didn't just clear my skin; it elevated my confidence permanently."
+                        </p>
+                        <span class="text-xs uppercase tracking-widest text-brand-gray">— Michael T.</span>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="min-w-full px-4 flex flex-col justify-center">
+                        <p class="font-serif text-2xl md:text-3xl leading-relaxed mb-6 italic">
+                            "State-of-the-art facilities and doctors who truly listen. The non-surgical face lift took 10 years off my appearance with zero downtime."
+                        </p>
+                        <span class="text-xs uppercase tracking-widest text-brand-gray">— Elena Rodriguez</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <div class="flex justify-center gap-4 mt-8 reveal reveal-delay-2">
+                <button onclick="moveSlide(-1)" class="w-10 h-10 border border-brand-dark/20 rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors">
+                    <i class="ph ph-arrow-left"></i>
+                </button>
+                <button onclick="moveSlide(1)" class="w-10 h-10 border border-brand-dark/20 rounded-full flex items-center justify-center hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-colors">
+                    <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="bg-brand-beige">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Form -->
+            <div class="py-24 px-6 lg:px-20 reveal">
+                <span class="text-xs uppercase tracking-[0.3em] text-brand-gold mb-4 block">Begin Your Journey</span>
+                <h2 class="font-serif text-4xl mb-10">Request a Consultation</h2>
+                
+                <form class="space-y-8" onsubmit="event.preventDefault(); alert('Thank you for reaching out. We will contact you shortly to schedule your consultation.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="relative border-b border-brand-dark/20 py-2">
+                            <input type="text" placeholder="Full Name" required class="w-full bg-transparent focus:outline-none placeholder-brand-gray text-brand-dark">
+                        </div>
+                        <div class="relative border-b border-brand-dark/20 py-2">
+                            <input type="tel" placeholder="Phone Number" required class="w-full bg-transparent focus:outline-none placeholder-brand-gray text-brand-dark">
+                        </div>
+                    </div>
+                    <div class="relative border-b border-brand-dark/20 py-2">
+                        <input type="email" placeholder="Email Address" required class="w-full bg-transparent focus:outline-none placeholder-brand-gray text-brand-dark">
+                    </div>
+                    <div class="relative border-b border-brand-dark/20 py-2">
+                        <select class="w-full bg-transparent focus:outline-none text-brand-gray appearance-none cursor-pointer">
+                            <option value="" disabled selected>Service of Interest</option>
+                            <option value="facelift">Advanced Face Lifts</option>
+                            <option value="dermatology">Clinical Dermatology</option>
+                            <option value="laser">Laser Treatments</option>
+                            <option value="injectables">Injectables & Fillers</option>
+                        </select>
+                        <i class="ph ph-caret-down absolute right-0 top-3 pointer-events-none text-brand-gray"></i>
+                    </div>
+                    <div class="relative border-b border-brand-dark/20 py-2">
+                        <textarea placeholder="Your Message" rows="3" class="w-full bg-transparent focus:outline-none placeholder-brand-gray text-brand-dark resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-outline w-full text-center">Submit Request</button>
+                </form>
+            </div>
+            
+            <!-- Map Placeholder -->
+            <div class="h-[500px] lg:h-auto bg-gray-200 relative reveal reveal-delay-1">
+                <!-- Using a grayscale static map image for aesthetic coherence -->
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Location Map" class="w-full h-full object-cover grayscale opacity-80">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="bg-brand-light p-8 shadow-2xl max-w-sm text-center">
+                        <i class="ph ph-map-pin text-3xl text-brand-gold mb-4"></i>
+                        <h4 class="font-serif text-2xl mb-2">Aura Clinic</h4>
+                        <p class="text-sm text-brand-gray font-light mb-4"><br></p>
+                        <p class="text-sm text-brand-dark font-medium">+91 9824842578</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-brand-light py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <div class="col-span-1 md:col-span-1">
+                <a href="#" class="font-serif text-2xl tracking-[0.2em] font-semibold text-white uppercase block mb-6">
+                    Aura<span class="text-brand-gold">.</span>
+                </a>
+                <p class="text-sm text-brand-gray font-light mb-6">
+                    Elevating dermatological care to an art form. Providing unparalleled aesthetic results in a luxury environment.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-brand-gray hover:text-white transition-colors"><i class="ph ph-instagram-logo text-xl"></i></a>
+                    <a href="#" class="text-brand-gray hover:text-white transition-colors"><i class="ph ph-facebook-logo text-xl"></i></a>
+                    <a href="#" class="text-brand-gray hover:text-white transition-colors"><i class="ph ph-twitter-logo text-xl"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-semibold mb-6 text-white">Treatments</h4>
+                <ul class="space-y-3 text-sm font-light text-brand-gray">
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">Thread Lifts</a></li>
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">HIFU Skin Tightening</a></li>
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">Laser Hair Reduction</a></li>
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">Acne Treatment</a></li>
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">Dermal Fillers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-semibold mb-6 text-white">Clinic</h4>
+                <ul class="space-y-3 text-sm font-light text-brand-gray">
+                    <li><a href="#about" class="hover:text-brand-gold transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-brand-gold transition-colors">The Doctors</a></li>
+                    <li><a href="#testimonials" class="hover:text-brand-gold transition-colors">Results</a></li>
+                    <li><a href="#process" class="hover:text-brand-gold transition-colors">Our Process</a></li>
+                    <li><a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="uppercase tracking-widest text-xs font-semibold mb-6 text-white">Newsletter</h4>
+                <p class="text-sm font-light text-brand-gray mb-4">Subscribe for aesthetic tips and exclusive offers.</p>
+                <form onsubmit="event.preventDefault();" class="relative">
+                    <input type="email" placeholder="Your Email" class="w-full bg-transparent border-b border-brand-gray/30 py-2 text-sm text-white focus:outline-none focus:border-brand-gold transition-colors">
+                    <button type="submit" class="absolute right-0 top-2 text-brand-gold hover:text-white transition-colors"><i class="ph ph-paper-plane-right"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs font-light text-brand-gray">
+            <p>&copy; 2026 Aura Aesthetics Clinic. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // 1. Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    // Trigger initial scroll reveals
+                    handleScrollReveal();
+                }, 800);
+            }, 1000); // 1s artificial delay to show branding
+        });
+
+        // 2. Sticky Navbar & Style Change on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // 3. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // 4. Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        function handleScrollReveal() {
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        }
+
+        // 5. Custom Vanilla JS Slider for Testimonials
+        let currentSlide = 0;
+        const slider = document.getElementById('testimonial-slider');
+        const totalSlides = slider.children.length;
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto advance slider
+        setInterval(() => {
+            moveSlide(1);
+        }, 6000);
+
+    </script>
+</body>
+</html>
